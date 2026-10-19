@@ -9,3 +9,53 @@ repositorio/
 ├── dos/          (seus arquivos .sql)
 └── backend/      (a API)
 
+Navegue até a pasta backend
+cd backend/
+
+Crie o ambiente virtual
+python3 -m venv .venv
+
+Escolha o interpretador
+Ctrl + Shift + P e digite Python: Select Interpreter.
+Escolha o backend/.venv/bin/python
+
+Feche a aba do terminal, inicie outra (Ctrl + `)
+A linha no terminal deve demonstrar que começa com .venv
+
+Instalar as bibliotecas:
+Instale a fastapi
+pip install fastapi "uvicorn[standard]" sqlalchemy "psycopg[binary]" python-dotenv
+
+pip freeze > requirements.txt
+pip list
+
+Esperado: fastapi, uvicorn, SQLAlchemy, psycopg e python-dotenv na lista. Print: o pip list.
+
+
+Proteja o repositório:
+Não suba para o github arquivos de estrutura de sistema
+Crie o .gitignore
+.venv/
+__pycache__/
+.env
+
+git status para verificar o que o git enxerga
+A pasta .venv e o .env não podem aparecer como “para adicionar”. 
+Se aparecerem, o .gitignore está errado
+
+Passo 8: Criar o Servidor
+Crie o main.py em backend
+
+Servidor minimo:
+from fastapi import FastAPI
+
+app = FastAPI(title="Mercearia do João")
+
+
+@app.get("/")
+def raiz():
+    return {"mensagem": "API no ar"}
+
+Para subir o servidor utilize no terminal, não esqueça de estar dentro do servidor:
+uvicorn main:app --reload
+http://127.0.0.1:8000
