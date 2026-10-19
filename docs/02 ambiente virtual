@@ -1,0 +1,11 @@
+/*Instalar venvi Python*/
+sudo apt install python3-venv
+
+Ative o auto Save para evitar problemas no --reload
+File, Auto Save.
+
+Crie a pasta do projeto
+repositorio/
+├── dos/          (seus arquivos .sql)
+└── backend/      (a API)
+
